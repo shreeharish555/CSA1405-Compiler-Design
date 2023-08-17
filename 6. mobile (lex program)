@@ -1,0 +1,42 @@
+%{
+%}
+
+%%
+
+[1-9][0-9]{9} {printf("\nMobile Number Valid\n");}
+.+ {printf("\nMobile Number Invalid\n");}
+
+%%
+
+int yywrap(){}
+int main()
+{
+	printf("\nEnter Mobile Number : ");
+	yylex();
+ }
+
+
+ OUTPUT:
+ Microsoft Windows [Version 10.0.22621.2134]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\HP>set path=C:\Program Files (x86)\GnuWin32\bin
+
+C:\Users\HP>flex mobile.l
+flex: can't open mobile.l
+
+C:\Users\HP>flex mobile.l.txt
+
+C:\Users\HP>set path=C:\MinGW\bin
+
+C:\Users\HP>gcc lex.yy.c
+
+C:\Users\HP>a
+
+Enter Mobile Number : 2344
+
+Mobile Number Invalid
+
+9894175288
+
+Mobile Number Valid
