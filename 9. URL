@@ -1,0 +1,44 @@
+%{
+int c=0;
+%}
+%%
+["https://www"]["."][a-z0-9!@#$%^&*()]+".com"|".edu"|".in" {c=1;}
+%%
+int yywrap(void){}
+int main()
+{
+printf("enter the url : ");
+yylex();
+if(c==1)
+printf("\nvalid..");
+else
+printf("\ninvalid..");
+}
+
+
+OUTPUT:
+Microsoft Windows [Version 10.0.22621.2134]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\HP>set path=C:\Program Files (x86)\GnuWin32\bin
+
+C:\Users\HP>flex url.l
+flex: can't open url.l
+
+C:\Users\HP>flex url.l.txt
+
+C:\Users\HP>set path=C:\MinGW\bin
+
+C:\Users\HP>gcc lex.yy.c
+
+C:\Users\HP>a
+enter the url : https://www.google.com/
+https://ww/
+
+valid..^C
+C:\Users\HP>a
+enter the url : ww.googlecom
+ww.googlecom
+
+invalid..^C
+C:\Users\HP>
