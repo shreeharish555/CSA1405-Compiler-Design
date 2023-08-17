@@ -1,0 +1,40 @@
+%{
+#include<stdio.h>
+int ln=0;
+%}
+%%
+.* {ln++;
+fprintf(yyout,"\n%d:%s",ln,yytext);}
+%%
+int yywrap(){}
+int main()
+{
+yyin=fopen("simple.txt","r");
+yyout=fopen("out.txt","w");
+yylex();
+return 0;
+}
+
+OUTPUT:
+SIMPLE:
+#include<stdio.h>
+int main()
+{
+printf("the is shree");
+return 0;
+}
+
+OUT:
+
+1:#include<stdio.h>
+
+2:int main()
+
+3:{
+
+4:printf("the is shree");
+
+5:return 0;
+
+6:}
+
