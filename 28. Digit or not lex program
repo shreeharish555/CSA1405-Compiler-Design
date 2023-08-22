@@ -1,0 +1,23 @@
+%%
+[0-9]+ {printf("\nValid digit \n");} 
+.* printf("\nInvalid digit\n");
+%%
+int yywrap(){}
+int main()											
+{
+yylex();
+return 0;
+}
+
+
+OUTPUT:
+C:\Users\HP>gcc lex.yy.c
+
+C:\Users\HP>a
+34
+
+Valid digit
+
+kj3
+
+Invalid digit
