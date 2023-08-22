@@ -1,0 +1,25 @@
+%%
+[A-Z]+[\t\n ] { printf("%s is a capital word\n",yytext); }
+.  ;
+%%
+
+int main( ) 
+{
+	printf("Enter String :\n");
+	yylex();
+}
+int yywrap( )
+{
+	return 1;
+}
+
+
+OUTPUT:
+
+C:\Users\HP>a
+Enter String :
+HELLO saveetha ENGINEERING COLLEGE
+HELLO  is a capital word
+ENGINEERING  is a capital word
+COLLEGE
+ is a capital word
