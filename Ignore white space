@@ -1,0 +1,36 @@
+%{
+
+#include <stdio.h>
+
+%}
+
+%%
+
+[ \t\n]    ; 
+
+. { printf("Token: %s\n", yytext); }
+
+%%
+
+int yywrap(void){}
+
+int main() {
+
+    yylex();
+
+    return 0;
+
+}
+
+
+OUTPUT:
+C:\Users\HP>gcc lex.yy.c
+
+C:\Users\HP>a
+s hre ee
+Token: s
+Token: h
+Token: r
+Token: e
+Token: e
+Token: e
