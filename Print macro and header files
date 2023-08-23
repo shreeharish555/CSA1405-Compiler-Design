@@ -1,0 +1,31 @@
+%{
+int macro,header;
+%}
+%%
+^#define {macro++;}
+^#include {header++;}
+%\n {}
+%%
+int yywrap(void){
+return 1;
+}
+int main(int argc,char *argv[])
+{
+yyin=fopen(argv[1],"r");
+yylex();
+printf("no of macros=%d\n"
+"no of headers=%d\n",macro,header);
+
+fclose(yyin);
+}
+
+
+OUTPUT:
+
+C:\Users\HP>a
+#include<conio.h>
+<conio.h>
+no of macros=0
+no of headers=1
+^C
+C:\Users\HP>
